@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic Table with Drag, Drop, and Save to LocalStorage</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      table {
+        width: 50%;
+        margin: 20px auto;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        padding: 12px;
+        border: 1px solid #ccc;
+        text-align: left;
+      }
+
+      th {
+        background-color: #f4f4f4;
+      }
+
+      .drag-handle {
+        cursor: move;
+        text-align: center;
+        color: #007bff;
+      }
+
+      .dragging {
+        opacity: 0.5;
+      }
+
+      /* Row background highlight while dragging */
+      .over {
+        border-bottom: 2px solid #007bff;
+      }
+
+      /* Style for new row (optional) */
+      .new-row {
+        background-color: #f9f9f9;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 style="text-align: center">
+      Rearrange Table Rows and Add New Rows (Auto Save)
+    </h2>
+    <table id="editableTable">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Item</th>
+          <th>Drag</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Rows will be generated dynamically here -->
+      </tbody>
+    </table>
+
+    <script>
+      const table = document
+        .getElementById("editableTable")
+        .querySelector("tbody");
+      let draggingRow;
+
+      // Load data from localStorage
+      function loadTableData() {
+        const savedData =
+          JSON.parse(localStorage.getItem("raghavTableData")) || [];
+
+        // Populate rows from saved data
+        savedData.forEach((item, index) => {
+          const newRow = document.createElement("tr");
+          newRow.setAttribute("draggable", "true");
+          newRow.innerHTML = `
+          <td>${index + 1}</td>
+          <td contenteditable="true">${item}</td>
+          <td class="drag-handle">⇅</td>
+        `;
+          table.appendChild(newRow);
+        });
+
+        // Add the empty row for new entries
+        addNewRow();
+      }
+
+      // Save data to localStorage
+      function saveTableData() {
+        const rows = table.querySelectorAll("tr:not(.new-row)");
+        const data = Array.from(rows).map(
+          (row) => row.querySelector("td:nth-child(2)").textContent
+        );
+        localStorage.setItem("raghavTableData", JSON.stringify(data));
+      }
+
+      // Function to update row numbers
+      function updateRowNumbers() {
+        const rows = table.querySelectorAll("tr");
+        rows.forEach((row, index) => {
+          row.querySelector("td:first-child").textContent = index + 1;
+        });
+      }
+
+      // Drag and drop functionality
+      table.addEventListener("dragstart", function (event) {
+        draggingRow = event.target;
+        draggingRow.classList.add("dragging");
+      });
+
+      table.addEventListener("dragend", function () {
+        draggingRow.classList.remove("dragging");
+        saveTableData();
+      });
+
+      table.addEventListener("dragover", function (event) {
+        event.preventDefault();
+        const targetRow = event.target.closest("tr");
+        if (
+          targetRow &&
+          targetRow !== draggingRow &&
+          !targetRow.classList.contains("new-row")
+        ) {
+          const rect = targetRow.getBoundingClientRect();
+          const next =
+            (event.clientY - rect.top) / (rect.bottom - rect.top) > 0.5;
+          table.insertBefore(
+            draggingRow,
+            (next && targetRow.nextSibling) || targetRow
+          );
+        }
+      });
+
+      table.addEventListener("drop", function () {
+        updateRowNumbers();
+        saveTableData();
+      });
+
+      // Function to add a new empty row when typing starts in the current last row
+      table.addEventListener("input", function (event) {
+        const inputCell = event.target;
+        const row = inputCell.closest("tr");
+
+        if (row && row.classList.contains("new-row")) {
+          // Create a new row dynamically
+          const newRow = document.createElement("tr");
+          newRow.setAttribute("draggable", "true");
+          newRow.innerHTML = `
+          <td></td>
+          <td contenteditable="true"></td>
+          <td class="drag-handle">⇅</td>
+        `;
+
+          // Insert the new row after the current last row
+          table.appendChild(newRow);
+
+          // Remove the 'new-row' class from the current row
+          row.classList.remove("new-row");
+          row.setAttribute("draggable", "true");
+
+          // Add the 'new-row' class to the new row to make it the new last row
+          newRow.classList.add("new-row");
+
+          // Update row numbers
+          updateRowNumbers();
+
+          // Save table data to localStorage
+          saveTableData();
+        }
+      });
+
+      // Add a new empty row for new input
+      function addNewRow() {
+        const newRow = document.createElement("tr");
+        newRow.classList.add("new-row");
+        newRow.innerHTML = `
+        <td></td>
+        <td contenteditable="true"></td>
+        <td class="drag-handle">⇅</td>
+      `;
+        table.appendChild(newRow);
+        updateRowNumbers();
+      }
+
+      // Initialize the table with data from localStorage on load
+      document.addEventListener("DOMContentLoaded", function () {
+        loadTableData();
+      });
+
+      // Function to check if the row is empty and remove it
+      function checkAndRemoveEmptyRow(row) {
+        const contentCell = row.querySelector("td:nth-child(2)");
+        if (contentCell.textContent.trim() === "") {
+          row.remove(); // Remove the row if it's empty
+          updateRowNumbers();
+          saveTableData(); // Save the updated table data after removing
+        }
+      }
+
+      // Listen for focusout events on table to check if a row is empty after editing
+      table.addEventListener("focusout", function (event) {
+        const inputCell = event.target;
+        const row = inputCell.closest("tr");
+
+        // Only remove rows that are not the last "new-row"
+        if (row && !row.classList.contains("new-row")) {
+          checkAndRemoveEmptyRow(row);
+        }
+      });
+    </script>
+  </body>
+</html>

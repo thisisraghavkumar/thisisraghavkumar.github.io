@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stephen Covey's Quadrants</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    h1 {
+      text-align: center;
+    }
+    #task-counter {
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    #date {
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      padding: 20px;
+    }
+    .quadrant {
+      border: 2px solid #333;
+      padding: 10px;
+      border-radius: 5px;
+      min-height: 250px;
+      display: flex;
+      flex-direction: column;
+    }
+    .quadrant h2 {
+      margin-top: 0;
+    }
+    .task {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #f4f4f4;
+      margin: 5px 0;
+      padding: 5px;
+      border-radius: 3px;
+      cursor: grab;
+    }
+    .task:hover {
+      background: #e0e0e0;
+    }
+    .task input[type="text"] {
+      flex: 1;
+      margin-right: 10px;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+    .task .drag-handle {
+      margin-right: 5px;
+      cursor: grab;
+    }
+    .task .due-date {
+      margin-left: 10px;
+      cursor: pointer;
+      border: none;
+      background: transparent;
+    }
+    .add-task {
+      display: flex;
+      margin-top: auto;
+    }
+    .add-task input {
+      flex: 1;
+      padding: 5px;
+      font-size: 14px;
+    }
+    .add-task button {
+      padding: 5px 10px;
+      font-size: 14px;
+      margin-left: 5px;
+    }
+    .days-to-go{
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Stephen Covey's Quadrants</h1>
+  <div id="date"></div>
+  <div id="task-counter">Tasks: 0</div>
+  <div class="grid">
+    <div class="quadrant" id="q1" data-location="1">
+      <h2>Important and Urgent</h2>
+      <ul></ul>
+      <div class="add-task">
+        <input class="new-task" type="text" placeholder="Add a task..." />
+        <button onclick="addTask(1)">Add</button>
+      </div>
+    </div>
+    <div class="quadrant" id="q2" data-location="2">
+      <h2>Important but Not Urgent</h2>
+      <ul></ul>
+      <div class="add-task">
+        <input class="new-task" type="text" placeholder="Add a task..." />
+        <button onclick="addTask(2)">Add</button>
+      </div>
+    </div>
+    <div class="quadrant" id="q3" data-location="3">
+      <h2>Not Important but Urgent</h2>
+      <ul></ul>
+      <div class="add-task">
+        <input class="new-task" type="text" placeholder="Add a task..." />
+        <button onclick="addTask(3)">Add</button>
+      </div>
+    </div>
+    <div class="quadrant" id="q4" data-location="4">
+      <h2>Not Important and Not Urgent</h2>
+      <ul></ul>
+      <div class="add-task">
+        <input class="new-task" type="text" placeholder="Add a task..." />
+        <button onclick="addTask(4)">Add</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    let tasks = [];
+
+    // Load tasks from local storage
+    function loadTasks() {
+      const savedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
+      tasks = savedTasks;
+      renderTasks();
+    }
+
+    // Save tasks to local storage
+    function saveTasks() {
+      localStorage.setItem('tasks', JSON.stringify(tasks.filter(task => task.taskSubject.length > 0)));
+      updateTaskCounter();
+    }
+
+    // Update task counter
+    function updateTaskCounter() {
+      const counter = document.getElementById('task-counter');
+      counter.textContent = `Tasks: ${tasks.length}`;
+      counter.style.color = tasks.length > 6 ? 'red' : 'black';
+    }
+
+    // Render tasks in quadrants
+    function renderTasks() {
+      quadrants.forEach((quadrant) => {
+        const ul = document.querySelector(`#q${quadrant} ul`);
+        ul.innerHTML = '';
+        const quadrantTasks = tasks
+          .filter((task) => task.quadrant.location === quadrant)
+          .filter((task) => {console.log(task); return task.taskSubject.length > 0;})
+          .sort((a, b) => {
+            console.log(a);
+            console.log(b);
+            let A = null;
+            let B = null;
+            if(a.dueDate !== null){
+              A = new Date(a.dueDate);
+            }
+            if(b.dueDate !== null){
+              B = new Date(b.dueDate);
+            }
+            if(a.dueDate === null && b.dueDate === null){
+              console.log(a.taskSubject+ " due date is null.");
+              return a.quadrant.position - b.quadrant.position;
+            }
+            if(a.dueDate === null){
+              console.log(a.taskSubject+ " due date is null.");
+              return 1;
+            }
+            if(b.dueDate === null){
+              console.log(b.taskSubject+ " due date is undefined.");
+              return -1;
+            }
+            console.log("Both due dates are defined.");
+            console.log(a);
+            console.log(b);
+            return A - B;
+          });
+        quadrantTasks.forEach((task) => {
+          const li = createTaskElement(task);
+          ul.appendChild(li);
+        });
+      });
+      updateTaskCounter();
+    }
+
+    // Add a new task
+    function addTask(location) {
+      const input = document.querySelector(`#q${location} input.new-task`);
+      const taskSubject = input.value.trim();
+      if (taskSubject) {
+        const newTask = {
+          taskId: `tsk_${Date.now()}`,
+          taskSubject,
+          dueDate: null,
+          quadrant: { location, position: tasks.length + 1 },
+        };
+        tasks.push(newTask);
+        input.value = '';
+        saveTasks();
+        renderTasks();
+      }
+    }
+
+    // Create a task element
+    function createTaskElement(task) {
+      console.log(task);
+      const li = document.createElement('li');
+      li.classList.add('task');
+      li.draggable = true;
+      li.dataset.taskId = task.taskId;
+
+      const dragHandle = document.createElement('span');
+      dragHandle.textContent = '⇅';
+      dragHandle.classList.add('drag-handle');
+      li.appendChild(dragHandle);
+
+      const input = document.createElement('input');
+      input.type = 'text';
+      input.value = task.taskSubject;
+      input.onchange = (e) => {
+        task.taskSubject = e.target.value;
+        saveTasks();
+      };
+      li.appendChild(input);
+
+      const calendarIcon = document.createElement('input');
+      calendarIcon.type = 'date';
+      calendarIcon.classList.add('due-date');
+      console.log("Task due date is "+task.dueDate);
+      let testDueDate = '';
+      if(task.dueDate){
+        const dDate = new Date(task.dueDate);
+        testDueDate = dDate.toISOString().slice(0,10);
+
+      }
+      console.log(testDueDate);
+      calendarIcon.value = testDueDate;
+      console.log("icon value = "+calendarIcon.value)
+      calendarIcon.onchange = (e) => {
+        console.log("Event target: "+e.target.value);
+        task.dueDate = new Date(e.target.value);
+        task.dueDate = task.dueDate.toISOString().slice(0,10) || null;
+        console.log("New due date ="+task.dueDate);
+        saveTasks();
+        renderTasks();
+      };
+      li.appendChild(calendarIcon);
+
+      const daysToGo = document.createElement('span');
+  daysToGo.classList.add('days-to-go');
+  if (task.dueDate) {
+    const now = new Date();
+    const dueDate = new Date(task.dueDate);
+    const diffInMs = dueDate - now;
+    const diffInDays = Math.ceil(diffInMs / (1000 * 60 * 60 * 24));
+    daysToGo.textContent = diffInDays > 0 
+      ? `${diffInDays} day(s) to go` 
+      : diffInDays === 0 
+        ? "Due today!" 
+        : `Overdue by ${Math.abs(diffInDays)} day(s)`;
+  } else {
+    daysToGo.textContent = 'No due date';
+  }
+  li.appendChild(daysToGo);
+
+      li.addEventListener('dragstart', dragStart);
+      return li;
+    }
+
+    // Drag and drop handlers
+    function dragStart(e) {
+      const taskId = e.target.dataset.taskId;
+      e.dataTransfer.setData('taskId', taskId);
+    }
+
+    quadrants = [1, 2, 3, 4];
+
+    quadrants.forEach((quadrant) => {
+      const qElement = document.getElementById(`q${quadrant}`);
+      qElement.addEventListener('dragover', (e) => e.preventDefault());
+      qElement.addEventListener('drop', (e) => {
+        e.preventDefault();
+        const taskId = e.dataTransfer.getData('taskId');
+        const droppedTask = tasks.find((task) => task.taskId === taskId);
+        const ul = qElement.querySelector("ul");
+        droppedTask.quadrant.location = quadrant;
+
+        ul.appendChild(document.querySelector(`[data-task-id="${taskId}"]`));
+
+    // Update positions of all tasks in the current quadrant
+    const updatedTasks = Array.from(ul.children).map((li, index) => {
+      const taskId = li.dataset.taskId;
+      const task = tasks.find((task) => task.taskId === taskId);
+      task.quadrant.position = index + 1; // Position starts at 1
+      return task;
+    });
+
+
+        saveTasks();
+        renderTasks();
+      });
+    });
+
+    // Initialize
+    loadTasks();
+  </script>
+  <script>
+    // Display today's date in locale format
+    const dateElement = document.getElementById('date');
+    const today = new Date();
+    dateElement.textContent = `Today's Date: ${today.toLocaleDateString()}`;
+  </script>
+</body>
+</html>

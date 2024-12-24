@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>750 Words</title>
+    <style>
+        .content {
+            width: inherit;
+            justify-content: center;
+            padding: 15;
+        }
+        .center {
+            display: flex;
+            width: inherit;
+            justify-content: center;
+        }
+        .textbox{
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1 class="center">750 Words</h1>
+        <p class="center">Word count: <spa id="wc">0</span></p>
+        <textarea id="essay" cols="100" rows="30" class="center textbox"></textarea>
+    </div>
+    <script>
+        document.getElementById("essay").onkeyup = (e) => {
+                let essay = e.target.value;
+                let words = essay.split(" ").filter(item => item.length > 0);
+                let wc = words.length;
+                if(essay.length == 0){
+                    wc = 0;
+                }
+                document.getElementById("wc").innerText = wc;
+                if(wc > 750){
+                    document.getElementById("wc").style.color = "#ff0000";
+                } else {
+                    document.getElementById("wc").style.color = "#000000";
+                }
+        }
+    </script>
+</body>
+</html>
