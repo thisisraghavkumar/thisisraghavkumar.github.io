@@ -133,7 +133,10 @@ Last updated: 23 February, 2025
             I'm a first year MS student at <b>The Pennsylvania State University, University Park</b> in College of Engineering studying Computer Science & Engineering. Before resuming my academic journey I had worked at Microsoft, Hyderabad as a Software Engineer for 4 years.
         </p>
         <p>
-            I love to read, especially about History and Economics to learn about how we got here. Here is my [resume](files/Raghav_Kumar_Resume.pdf).
+            I love to read, especially about History and Economics to learn about how we got here.
+        </p>
+        <p>
+            You can find my resume <a href="files/Raghav_Kumar_Resume.pdf">here</a>.
         </p>
     </div>
 </div>
@@ -149,9 +152,9 @@ Last updated: 23 February, 2025
 ### Reccomendations
 
 I would humbly recommend you to check out the following works that have inspired me
-* Ayn Rand (The Fountainhead and Atlas Shrugged)</li>
+* Ayn Rand (The Fountainhead and Atlas Shrugged)
 * Walter Issacson (The Innovators)
-* Dale Carnegie (How to Win Friends and Influence People)</li>
+* Dale Carnegie (How to Win Friends and Influence People)
 * [Acharya Prashant](https://acharyaprashant.org/)
 * [Everything is Everything Podcast](https://www.youtube.com/playlist?list=PLIG8a9wNRHVu-Aw2VgUJacXlpsJMbF5Y_)
 * [What we see and what we don't see](http://bastiat.org/fr/cqovecqonvp.html) by Frédéric Bastiat
