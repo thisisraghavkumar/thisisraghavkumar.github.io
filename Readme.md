@@ -7,7 +7,7 @@ Last updated: 24 December, 2024
     gap: 20px;
 ">
     <div style="flex-shrink: 0;height: auto;max-width: 40%;">
-        <img src="files/selfie.jpeg" alt="Profile Photo of Raghav Kumar" style="height: 250px;width: 100%;">
+        <img src="files/selfie.jpeg" alt="Profile Photo of Raghav Kumar" style="height: 290px;width: 100%;">
     </div>
     <div>
         <p>
@@ -20,7 +20,7 @@ Last updated: 24 December, 2024
                 <li> Dale Carnegie (How to Win Friends and Influence People)</li>
                 <li> <a href="https://acharyaprashant.org/">Acharya Prashant</a></li>
                 <li> <a href = "https://www.youtube.com/playlist?list=PLIG8a9wNRHVu-Aw2VgUJacXlpsJMbF5Y_">Everything is Everything Podcast</a></li>
-                <li> <a href=http://bastiat.org/fr/cqovecqonvp.html>What we see and what we don't see</a> by Frédéric Bastiat</li>
+                <li><a href="http://bastiat.org/fr/cqovecqonvp.html">What we see and what we don't see</a> by Frédéric Bastiat</li>
             </ol>
         </p>
     </div>
