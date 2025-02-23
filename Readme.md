@@ -14,17 +14,17 @@ Last updated: 24 December, 2024
 
     /* Headings */
     h1, h2, h3, h4, h5, h6 {
-        color: #e0c3fc; /* Light Mauve */
+        color: #9022F7; /* Light Mauve */
     }
 
     /* Links */
     a {
-        color: #a78bfa; /* Soft Lavender */
+        color: #9022F7; /* Soft Lavender */
         text-decoration: none;
     }
 
     a:hover {
-        color: #c4b5fd; /* Brighter lavender on hover */
+        color: #B377FF; /* Brighter lavender on hover */
     }
 
     /* Buttons */
