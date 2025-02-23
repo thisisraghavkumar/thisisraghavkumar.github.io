@@ -2,6 +2,98 @@
 Last updated: 24 December, 2024
 
 <style>
+    /* Muted Purple Dark Theme */
+body {
+  background-color: #2e1a47; /* Muted Purple */
+  color: #d6d3d1; /* Warm Grey */
+  font-family: Arial, sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+    /* Headings */
+    h1, h2, h3, h4, h5, h6 {
+    color: #e0c3fc; /* Light Mauve */
+    }
+
+    /* Links */
+    a {
+    color: #a78bfa; /* Soft Lavender */
+    text-decoration: none;
+    }
+
+    a:hover {
+    color: #c4b5fd; /* Brighter lavender on hover */
+    }
+
+    /* Buttons */
+    button {
+    background-color: #4a2179; /* Darker Purple */
+    color: #e0c3fc;
+    border: 1px solid #7045af;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    }
+
+    button:hover {
+    background-color: #603597;
+    transform: scale(1.05);
+    }
+
+    /* Containers / Sections */
+    .container {
+    background-color: #3b225a; /* Slightly darker section background */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Inputs & Textareas */
+    input, textarea {
+    background-color: #4a3172;
+    color: #e0c3fc;
+    border: 1px solid #7045af;
+    padding: 8px;
+    border-radius: 5px;
+    }
+
+    input::placeholder, textarea::placeholder {
+    color: #b094c8;
+    }
+
+    /* Code Blocks */
+    pre, code {
+    background-color: #3f2762;
+    color: #e0c3fc;
+    padding: 5px 10px;
+    border-radius: 5px;
+    }
+
+    /* Navbar */
+    .navbar {
+    background-color: #4a2179;
+    padding: 10px;
+    }
+
+    .navbar a {
+    color: #e0c3fc;
+    padding: 8px 12px;
+    }
+
+    .navbar a:hover {
+    color: #c4b5fd;
+    }
+
+    /* Footer */
+    .footer {
+    background-color: #2a133c;
+    color: #b3a0c2;
+    padding: 15px;
+    text-align: center;
+    margin-top: 20px;
+    }
+
     #introcontainer {
     display: flex;
     align-items: flex-start;
@@ -53,9 +145,9 @@ Last updated: 24 December, 2024
 
 Few interesting things that I have come across recently
 1. [My Resume](files/Raghav_Kumar_Resume.pdf), well obviously.
-2. I'm currently working on a semester long project to find out algortihmic or AI based methods to detect unexpected behaviour in systems built on Cardano. You can find our first draft proposal [here](https://github.com/thisisraghavkumar/MyLearnings/blob/master/Courses/CSE%20597-7%20PSU%20Sec%20Analysis%20of%20Emerging%20Systems/Research_Proposal.pdf).
+2. I'm currently working on a semester long project to find out algortihmic or AI based methods to detect unexpected behaviour in systems built on **Cardano**. You can find our first draft proposal [here](https://github.com/thisisraghavkumar/MyLearnings/blob/master/Courses/CSE%20597-7%20PSU%20Sec%20Analysis%20of%20Emerging%20Systems/Research_Proposal.pdf).
 3. **Machine Learning** is magic of mathematics. One set of tricks involves enlarging the input into many dimensions, which should make it more expressive and easier to learn. This can be done via the kernel trick (theoretically expanding input to infinite dimensions but only using output of a "kernel" function), or randomly sampling thousands of the infinite features, or multiplying the input with a random matrix obtaining a Gaussian projection. All these tricks should make the data easier to learn and the resulting model more accurate. Furthermore, linear classification can be done using either Stochastic Gradient Descent, or Support Vector Machines. So which pair of feature expansion and linear classifier works best? Check out the image below and head to [this page](https://github.com/thisisraghavkumar/MyLearnings/blob/master/Courses/CSE%20597-8%20PSU%20Deep%20Neural%20Networks/Technique%20compare%20on%20titanic.md).
 ![graph showing comparative accuracy of linear classifier and feature expansion techniques](/files/output_9_0.png)
-4. GPUs make computations fast, especially when you want to perform the same operation on all pieces of data. Multiplying two matrices is a computing problem which fits this bill perfectly. However, all code to compute matrix mutliplication using a GPU is not created equal, and some techniques are better than others. See the chart below and head to [this github repo](https://github.com/thisisraghavkumar/GPU_MatMul_Optimizations) to learn more.
+4. **GPUs** make computations fast, especially when you want to perform the same operation on all pieces of data. Multiplying two matrices is a computing problem which fits this bill perfectly. However, all code to compute matrix mutliplication using a GPU is not created equal, and some techniques are better than others. See the chart below and head to [this github repo](https://github.com/thisisraghavkumar/GPU_MatMul_Optimizations) to learn more.
 ![a chart showing performance of matrix multiplication CUDA codes](/files/Size%20obsv.001.png)
 5. [My Writing.com Portfolio](https://www.writing.com/main/portfolio/view/kumarrg03)
