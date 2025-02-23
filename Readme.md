@@ -136,7 +136,7 @@ Last updated: 23 February, 2025
             I love to read, especially about History and Economics, to learn about how we got here.
         </p>
         <p>
-            You can find my <a href="files/Raghav_Kumar_Resume.pdf">resume here</a>, some of the interesting things that I'm working on below and a few recommendations at the end.
+            You can find my <a href="files/Raghav_Kumar_Resume.pdf">resume here</a>, some of the interesting things that I'm working on below, and a few recommendations at the end.
         </p>
     </div>
 </div>
@@ -149,7 +149,7 @@ Last updated: 23 February, 2025
 ![a chart showing performance of matrix multiplication CUDA codes](/files/Size%20obsv.001.png)
 4. [My Writing.com Portfolio](https://www.writing.com/main/portfolio/view/kumarrg03)
 
-### Reccomendations
+### Recommendations
 
 I would humbly recommend you to check out the following works that have inspired me
 * Ayn Rand (The Fountainhead and Atlas Shrugged)
