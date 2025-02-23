@@ -3,26 +3,28 @@ Last updated: 24 December, 2024
 
 <style>
     /* Muted Purple Dark Theme */
-body {
-  background-color: #2e1a47; /* Muted Purple */
-  color: #d6d3d1; /* Warm Grey */
-  font-family: Arial, sans-serif;
-  transition: background-color 0.3s, color 0.3s;
-}
+    body {
+        background-color: #F4F1F7; /* Soft off-white, easy on the eyes */
+        color: #222222; /* Standard black for text */
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        transition: background-color 0.3s, color 0.3s;
+    }
 
     /* Headings */
     h1, h2, h3, h4, h5, h6 {
-    color: #e0c3fc; /* Light Mauve */
+        color: #e0c3fc; /* Light Mauve */
     }
 
     /* Links */
     a {
-    color: #a78bfa; /* Soft Lavender */
-    text-decoration: none;
+        color: #a78bfa; /* Soft Lavender */
+        text-decoration: none;
     }
 
     a:hover {
-    color: #c4b5fd; /* Brighter lavender on hover */
+        color: #c4b5fd; /* Brighter lavender on hover */
     }
 
     /* Buttons */
