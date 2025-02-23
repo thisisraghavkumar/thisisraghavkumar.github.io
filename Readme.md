@@ -11,15 +11,17 @@ Last updated: 24 December, 2024
     </div>
     <div>
         <p>
-            I'm a first year MS student at **The Pennsylvania State University, University Park** in College of Engineering studying Computer Science & Engineering. Before resuming my academic journey I had worked at Microsoft, Hyderabad as a Software Engineer for 4 years.
+            I'm a first year MS student at <b>The Pennsylvania State University, University Park</b> in College of Engineering studying Computer Science & Engineering. Before resuming my academic journey I had worked at Microsoft, Hyderabad as a Software Engineer for 4 years.
         </p>
         <p>
-            I love to read, especially about History and Economics to learn about how we got here. I would seriously recommend you to check out the works of 
-            * Ayn Rand (The Fountainhead and Atlas Shrugged),
-            * Dale Carnegie (How to Win Friends and Influence People),
-            * [Acharya Prashant](https://acharyaprashant.org/),
-            * [Everything is Everything Podcast](https://www.youtube.com/playlist?list=PLIG8a9wNRHVu-Aw2VgUJacXlpsJMbF5Y_), and
-            * ["What we see and what we don't see"](http://bastiat.org/fr/cqovecqonvp.html) by Frédéric Bastiat
+            I love to read, especially about History and Economics to learn about how we got here. I would humbly recommend you to check out the following works that have inspired me
+            <ol>
+                <li>Ayn Rand (The Fountainhead and Atlas Shrugged)</li>
+                <li> Dale Carnegie (How to Win Friends and Influence People)</li>
+                <li> <a href="https://acharyaprashant.org/">Acharya Prashant</a></li>
+                <li> <a href = "https://www.youtube.com/playlist?list=PLIG8a9wNRHVu-Aw2VgUJacXlpsJMbF5Y_">Everything is Everything Podcast</a></li>
+                <li> <a href=http://bastiat.org/fr/cqovecqonvp.html>What we see and what we don't see</a> by Frédéric Bastiat</li>
+            </ol>
         </p>
     </div>
 </div>
