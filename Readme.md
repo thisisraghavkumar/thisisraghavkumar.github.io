@@ -133,10 +133,10 @@ Last updated: 23 February, 2025
             I'm a first year MS student at <b>The Pennsylvania State University, University Park</b> in College of Engineering studying Computer Science & Engineering. Before resuming my academic journey I had worked at Microsoft, Hyderabad as a Software Engineer for 4 years.
         </p>
         <p>
-            I love to read, especially about History and Economics to learn about how we got here.
+            I love to read, especially about History and Economics, to learn about how we got here.
         </p>
         <p>
-            You can find my resume <a href="files/Raghav_Kumar_Resume.pdf">here</a>.
+            You can find my <a href="files/Raghav_Kumar_Resume.pdf">resume here</a>, some of the interesting things that I'm working on below and a few recommendations at the end.
         </p>
     </div>
 </div>
