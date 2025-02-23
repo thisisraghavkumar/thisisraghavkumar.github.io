@@ -1,12 +1,24 @@
 # Raghav Kumar
 Last updated: 24 December, 2024
 
-<div id="intro-container" style="
+<style>
+    @media (max-width: 768px) {
+    #introcontainer {
+      flex-direction: column;
+    }
+    #imgcontainer {
+        width: 100%;
+        align-self: center;
+    }
+  }
+</style>
+
+<div id="introcontainer" style="
     display: flex;
     align-items: flex-start;
     gap: 20px;
 ">
-    <div style="flex-shrink: 0;height: auto;max-width: 40%;">
+    <div id="imgcontainer" style="flex-shrink: 0;height: auto;max-width: 40%;">
         <img src="files/selfie.jpeg" alt="Profile Photo of Raghav Kumar" style="height: 290px;width: 100%;">
     </div>
     <div>
