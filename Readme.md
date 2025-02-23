@@ -24,7 +24,7 @@ Last updated: 24 December, 2024
       flex-direction: column;
     }
     #imgcontainer {
-        width: 100%;
+        max-width: 100%;
         align-self: center;
     }
   }
