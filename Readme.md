@@ -130,7 +130,7 @@ Last updated: 23 February, 2025
     </div>
     <div>
         <p>
-            I'm a Computer Engineer with <b>4 years of work experience at Microsoft</b> and currently pursuing an MS at <b>The Pennsylvania State University, University Park</b> specializing in Computer Security and Machine Learning.
+            I'm a full-stack Computer Engineer with <b>4 years of experience at Microsoft</b> and currently pursuing an MS at <b>The Pennsylvania State University, University Park</b> specializing in Computer Security and Engineering for AI. I have worked on most layers of computer engineering starting right from compilers and CUDA kernels for GPUs, to web applications and big data analysis pipelines.
         </p>
         <p>
             Also, I love to read, especially about History and Economics, to learn about how we got here.
