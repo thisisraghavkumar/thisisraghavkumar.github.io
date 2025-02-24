@@ -130,10 +130,10 @@ Last updated: 23 February, 2025
     </div>
     <div>
         <p>
-            I'm a first year MS student at <b>The Pennsylvania State University, University Park</b> in College of Engineering studying Computer Science & Engineering. Before resuming my academic journey I had worked at Microsoft, Hyderabad as a Software Engineer for 4 years.
+            I'm a Computer Engineer with <b>4 years of work experience at Microsoft</b> and currently pursuing an MS at <b>The Pennsylvania State University, University Park</b> specializing in Computer Security and Machine Learning.
         </p>
         <p>
-            I love to read, especially about History and Economics, to learn about how we got here.
+            Also, I love to read, especially about History and Economics, to learn about how we got here.
         </p>
         <p>
             You can find my <a href="files/Raghav_Kumar_Resume.pdf">resume here</a>, some of the interesting things that I'm working on below, and a few recommendations at the end.
@@ -141,7 +141,7 @@ Last updated: 23 February, 2025
     </div>
 </div>
 
-### Interesting things I'm working on or have found out
+### Ongoing projects and notes
 1. I'm currently working on a semester long project to find out algortihmic or AI based methods to detect unexpected behaviour in systems built on **Cardano**. You can find our first draft proposal [here](https://thisisraghavkumar.github.io/MyLearnings/Courses/CSE%20597-7%20PSU%20Sec%20Analysis%20of%20Emerging%20Systems/Research_Proposal.pdf).
 2. **Machine Learning** is magic of mathematics. One set of tricks involves enlarging the input into many dimensions, which should make it more expressive and easier to learn. This can be done via the kernel trick (theoretically expanding input to infinite dimensions but only using output of a "kernel" function), or randomly sampling thousands of the infinite features, or multiplying the input with a random matrix obtaining a Gaussian projection. All these tricks should make the data easier to learn and the resulting model more accurate. Furthermore, linear classification can be done using either Stochastic Gradient Descent, or Support Vector Machines. So which pair of feature expansion and linear classifier works best? Check out the image below and head to [this page](https://thisisraghavkumar.github.io/MyLearnings/Courses/CSE%20597-8%20PSU%20Deep%20Neural%20Networks/Technique%20compare%20on%20titanic).
 ![graph showing comparative accuracy of linear classifier and feature expansion techniques](/files/output_9_0.png)
